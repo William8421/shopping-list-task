@@ -1,0 +1,165 @@
+:root {
+    --space--xs: 4px;
+    --space--s: 8px;
+    --space: 16px;
+    --space--l: 24px;
+    --space--xl: 32px;
+  }
+  
+  html,
+  body {
+    -webkit-font-smoothing: antialiased;
+    display: grid;
+    place-content: start center;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  h1 {
+    margin: var(--space--xl) 0;
+    color: #212121;
+    font-weight: 400;
+    font-size: 3.25rem;
+    line-height: 1.2;
+    letter-spacing: 0;
+  }
+  
+  .shopping-list-container {
+    box-sizing: border-box;
+    box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2),
+      0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+    border: 0;
+    border-radius: 24px;
+    padding: var(--space--l);
+    width: calc(100vw - (2 * var(--space)));
+    max-width: 440px;
+  }
+  
+  /**
+   * INPUTS
+   */
+  .input-label {
+    font-size: 12px;
+    letter-spacing: 0.4px;
+  }
+  
+  .input-control {
+    -webkit-appearance: none;
+    appearance: none;
+    box-sizing: border-box;
+    margin-top: var(--space--xs);
+    border: none;
+    border-radius: 4px;
+    background: #f2f2f2;
+    padding: var(--space) var(--space--s);
+    width: 100%;
+  }
+  
+  /**
+   * BUTTONS
+   */
+  button {
+    display: inline-flex;
+    position: relative;
+    align-items: center;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    background: rgba(0, 0, 0, 0);
+    padding: 0 var(--space);
+    height: 36px;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: inherit;
+    letter-spacing: 0.0892857143em;
+    user-select: none;
+    text-decoration: none;
+    text-transform: none;
+  }
+  
+  .action-button {
+    justify-content: center;
+    transition: border 280ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid var(--_border-color, var(--_color, HotPink));
+    border-radius: 24px;
+    color: var(--_color, HotPink);
+  }
+  
+  .action-button:hover {
+    fill: var(--_hover-color, var(--_color, HotPink));
+    background-color: var(--_hover-background-color, MediumVioletRed);
+    color: var(--_hover-color, var(--_color, HotPink));
+  }
+  
+  .action-button--primary {
+    --_color: #ff7f32;
+    --_hover-background-color: #fff4f0;
+  }
+  
+  .action-button--secondary {
+    --_border-color: transparent;
+    --_color: #333;
+    --_hover-background-color: #f7f7f7;
+  }
+  
+  .action-button--type-icon {
+    --_border-color: transparent;
+    --_color: Crimson;
+    --_hover-background-color: var(--_color);
+    --_hover-color: white;
+    --_size: 32px;
+    fill: var(--_color);
+    display: grid;
+    flex-shrink: 0;
+    place-content: center;
+    padding: 0;
+    width: var(--_size);
+    height: var(--_size);
+  }
+  
+  /**
+   * added styles
+   */
+  .new-list {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fbfbfb;
+  }
+  
+  .flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space--s);
+  }
+  
+  .buttons-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--space--l);
+    gap: 1rem;
+  }
+  
+  .checked-item {
+    background-color: #fbfbfb;
+    text-decoration: line-through;
+  }
+  
+  .title-input {
+    font-size: var(--space);
+    font-weight: bold;
+  }
+  

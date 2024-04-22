@@ -1,0 +1,32 @@
+<section class="shopping-list-container new-list">
+    <div class="flex-container">
+        <h2>New shopping list</h2>
+        <button class=" action-button action-button--type-icon" (click)="closeNewList()">X</button>
+    </div>
+    <form [formGroup]="shoppingListForm" (ngSubmit)="saveShoppingList()">
+        <div>
+            <label class="input-label" aria-label="Label text for input">
+                <input class="input-control title-input" type="text" formControlName="title"
+                    placeholder="Shopping list name" />
+                <div *ngIf="errorMessage">{{ errorMessage }}</div>
+            </label>
+        </div>
+        <div class="flex-container" *ngFor="let item of items; let i = index">
+            <label class="input-label" aria-label="Label text for input">
+                <input type="checkbox" (change)="checkCheckboxValue($event, item)" />
+            </label>
+            <div class="input-control" [ngClass]="{'checked-item': item.checked}">{{item.name}}</div>
+            <button class="action-button action-button--type-icon" title="remove entry"
+                (click)="removeItem(i)">X</button>
+        </div>
+        <div class="flex-container">
+            <input type="checkbox" />
+            <input type="text" class="input-control" formControlName="item" (blur)="addNewItem()" />
+        </div>
+        <div class="buttons-container">
+            <button class="action-button action-button--secondary" (click)="resetShoppingList()"
+                type="button">Reset</button>
+            <button class="action-button action-button--primary" type="submit">Save</button>
+        </div>
+    </form>
+</section>

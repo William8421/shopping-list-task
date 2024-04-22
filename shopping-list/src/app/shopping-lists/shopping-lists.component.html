@@ -1,0 +1,24 @@
+<div>
+    <div *ngIf="shoppingLists.length === 0">
+        <p>Start adding your shopping lists</p>
+    </div>
+    <div *ngFor="let list of shoppingLists let i = index">
+        <div class="flex-container">
+            <h3>{{ list.title }}</h3>
+            <button class="action-button action-button--type-icon" (click)="removeList(i)">X</button>
+        </div>
+        <div class="flex-container" *ngFor="let item of list.items; let j = index">
+            <input [checked]="item.checked" type="checkbox" (change)="checkCheckboxValue($event, item, i, j)">
+            <div class="input-control" [ngClass]="{'checked-item': item.checked}">{{item.name}}</div>
+            <button class="action-button action-button--type-icon" (click)="removeItem(i, j)">X</button>
+        </div>
+    </div>
+    <div class="buttons-container">
+        <button class=" action-button action-button--primary" (click)="toggleNewList()">New
+            List</button>
+        <div *ngIf="showNewList">
+            <app-new-shopping-list (listAdded)="onListAdded()"
+                (toggleNewList)="toggleNewList()"></app-new-shopping-list>
+        </div>
+    </div>
+</div>
